@@ -7,14 +7,15 @@ import A from './components/A.jsx'
 import c from './heightCompnents/c.js';
 import B from './components/B.jsx';
 import d from './heightCompnents/d.js';
+import e from './heightCompnents/e.js';
 
 const NewB = c(B);
-const NewA = d('A的wap高阶组件D')(A)
+const NewA = e('#f0f')(A);
 class App extends Component{
     render(){
         return (
             <div >
-                <NewA wap='D' name = 'dddd' text= '测试A'/>
+                <NewA wap='e' name = 'dddd' text= '测试A'/>
                 <NewB  text = '测试b'/>
             </div>
         )

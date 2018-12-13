@@ -3,7 +3,7 @@ import React,{Component} from 'react';
 class A extends Component{
 
     componentDidMount(){
-        console.log(this.props)
+        console.log('a')
     }
     render(){
         return (

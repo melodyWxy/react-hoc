@@ -1,30 +1,23 @@
-import React,{Component,createRef} from  'react'
+import React from  'react'
 
+function getDisplayName(Inconponent){
+    return Inconponent.displayName||Inconponent.name||'component'
+}
 
-
-export default  title=>Inconponent=> class E extends Component{
-    state={
-        value:''
-    }
-    myref=createRef();
-    handleInputChange=(e)=>{
-        this.setState({
-            value:e.target.value
-        })
-    }
-    
+export default  color=>Inconponent=> class E extends Inconponent{
+    static displayName = `E(${getDisplayName(Inconponent)})`
+;    
     render(){
         const {wap,...otherprops} = this.props;
-        const newProps = {
-            value:this.state.value,
-            onChange:this.handleInputChange
+        const element = super.render();
+        console.log(element);
+        const newStyle = {
+            color:element.type==='div'?color:null
         }
-        return (
-            <div>
-                我是组件E，是典型的继承形式的高阶组件，我除了做自己的事，还可以对 我的参数组件：1增加/删减props2抽离状态3访问ref4包装组件
-                <div>我的title：{title}</div>
-                <Inconponent  {...otherprops} ref={this.myref} inputProps={newProps}/>
-            </div>
-        )
+        const newProps = {
+            ...otherprops,
+            style:newStyle
+        }
+        return React.cloneElement(element,newProps,element.props.children)
     }
 }

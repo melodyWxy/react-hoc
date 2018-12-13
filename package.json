@@ -1,10 +1,12 @@
 {
-  "name": "react-hoc",
+  "name": "wxy-react-hoc",
   "version": "1.0.0",
   "description": "react-hoc",
   "main": "index.js",
   "scripts": {
-    "test": "wxy"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.prod.js",
+    "start": "webpack-dev-server --open --config webpack.dev.js"
   },
   "repository": {
     "type": "git",
